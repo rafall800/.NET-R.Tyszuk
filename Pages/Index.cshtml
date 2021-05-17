@@ -10,26 +10,27 @@
 <form method="post">
     <div class="text-center">
         <h1 class="display-4">Welcome @Model.Name</h1>
+        <h2>Twoje IP: @ViewData["Twoje IP"]</h2>
+        <div class="form-row">
+            <div class="col">
+                <label asp-for="Address.Street"></label>
+                <input class="form-control" asp-for="Address.Street" /><br />
+            </div>
+            <div class="col">
+                <label asp-for="Address.Number"></label>
+                <input class="form-control" asp-for="Address.Number" /><br />
+            </div>
+            <div class="col">
+                <label asp-for="Address.ZipCode"></label>
+                <input class="form-control" asp-for="Address.ZipCode" /><br />
+            </div>
+            <div class="col">
+                <label asp-for="Address.City"></label>
+                <input class="form-control" asp-for="Address.City" /><br />
+            </div>
+        </div>
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Zatwierdź</button>
+        </div>
     </div>
-    <div class="form-inline" >
-        <div class="col-auto">
-            <label asp-for="Address.Street"></label>
-            <input asp-for="Address.Street" /><br />
-        </div>
-        <div class="col-auto">
-            <label asp-for="Address.Number"></label>
-            <input asp-for="Address.Number" /><br />
-        </div>
-        <div class="col-auto">
-            <label asp-for="Address.ZipCode"></label>
-            <input asp-for="Address.ZipCode" /><br />
-        </div>
-        <div class="col-auto">
-            <label asp-for="Address.City"></label>
-            <input asp-for="Address.City" /><br />
-        </div>
-    </div>
-<div class="text-center">
-    <button type="submit" class="btn btn-primary" >Zatwierdź</button>
-</div>
-    </form>
+</form>

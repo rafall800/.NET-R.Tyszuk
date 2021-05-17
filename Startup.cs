@@ -24,6 +24,11 @@ namespace Zaj2
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddMemoryCache();
+            services.AddSession(options=>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,6 +49,7 @@ namespace Zaj2
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseSession();
 
             app.UseAuthorization();
 
