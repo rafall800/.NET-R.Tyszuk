@@ -12,8 +12,15 @@ namespace Zaj2.Utils
         public override async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {
             var ipAddress = context.HttpContext.Request.Host.ToString();
-            var result = (PageResult)context.Result;
-            result.ViewData["Twoje IP"] = ipAddress;
+            var result = context.Result;
+            if (result is PageResult)
+            {
+                var page = ((PageResult)result);
+                page.ViewData["Twoje IP"] = ipAddress;
+            }
+
+           // var result = (PageResult)context.Result;
+            //result.ViewData["Twoje IP"] = ipAddress;
             await next.Invoke();
         }
     }
